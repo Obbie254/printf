@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 			write(1, format, 1);
 			num++;
 		}
-		format++
+		format++;
 	}
 	va_end(my_args);
 	return (num);
