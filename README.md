@@ -1,1 +1,1 @@
-Creating a printf function in order to handle different format specifiers, widths, precisions and flags
+Creating a printf function handling different format specifiers, field widths, precisions, flag characters and length modifiers
