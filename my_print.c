@@ -1,4 +1,7 @@
 #include "main.h"
+#include <stdlib.h>
+#include "strlen.h"
+
 
 /**
  * _printf - fxn that produces output according to a format
@@ -32,6 +35,14 @@ int _printf(const char *format, ...)
 				case '%':
 					write(1, format, 1);
 					num++;
+		                case 's':
+				       int y;
+                                       y = str_len(format);
+                                       size_t* x;
+                                       x = (size_t*) malloc((sizeof(char)) * (y + 1));
+                                       write(1, format, x);
+                                       free(x);
+                                       break;
 			}
 		}
 		else
