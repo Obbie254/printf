@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
-#include "strlen.h"
+#include <stdarg.h>
 
 
 /**
@@ -13,6 +13,8 @@ int _printf(const char *format, ...)
 {
 	int num = 0;
 	char c;
+	int len;
+	char *s;
 	va_list my_args;
 
 	va_start(my_args, format);
@@ -35,14 +37,17 @@ int _printf(const char *format, ...)
 				case '%':
 					write(1, format, 1);
 					num++;
+					break;
 		                case 's':
-				       int y;
-                                       y = str_len(format);
-                                       size_t* x;
-                                       x = (size_t*) malloc((sizeof(char)) * (y + 1));
-                                       write(1, format, x);
-                                       free(x);
-                                       break;
+					s = va_arg(my_args, char*);
+					len = 0;
+                                        while (s[len] != '\0')
+                                        {
+                                        len++;
+                                        }
+                                        write(1, s, len);
+                                        num += len;
+                                        break;
 			}
 		}
 		else
