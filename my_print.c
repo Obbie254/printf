@@ -9,6 +9,7 @@
 int _printf(const char *format, ...)
 {
 	int num = 0;
+	char c;
 	va_list my_args;
 
 	va_start(my_args, format);
@@ -22,7 +23,7 @@ int _printf(const char *format, ...)
 			{
 				/* handle c */
 				case 'c':
-					char c = va_arg(my_args, int);
+					c = va_arg(my_args, int);
 
 					write(1, &c, 1);
 					num++;
