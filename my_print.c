@@ -11,10 +11,8 @@
  */
 int _printf(const char *format, ...)
 {
-	int num = 0;
-	char c;
-	int len;
-	char *s;
+	int num = 0, len;
+	char c, *s;
 	va_list my_args;
 
 	va_start(my_args, format);
@@ -26,28 +24,22 @@ int _printf(const char *format, ...)
 		{
 			switch (*++format)
 			{
-				/* handle c */
 				case 'c':
 					c = va_arg(my_args, int);
 
 					write(1, &c, 1);
 					num++;
 					break;
-				/* handle %% */
 				case '%':
 					write(1, format, 1);
 					num++;
 					break;
-		                case 's':
+				case 's':
 					s = va_arg(my_args, char*);
 					len = 0;
-                                        while (s[len] != '\0')
-                                        {
-                                        len++;
-                                        }
-                                        write(1, s, len);
-                                        num += len;
-                                        break;
+					write(1, s, str_len(s));
+					num += len;
+					break;
 			}
 		}
 		else
