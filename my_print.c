@@ -1,8 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdarg.h>
-
-
 /**
  * _printf - fxn that produces output according to a format
  * @format: a character string
@@ -12,9 +10,9 @@
 int _printf(const char *format, ...)
 {
 	int num = 0, len;
-	char c, *s;
-	va_list my_args;
+	char c, *s, v, p;
 
+	va_list my_args;
 	va_start(my_args, format);
 	if (format == NULL)
 		return (-1);
@@ -26,12 +24,12 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					c = va_arg(my_args, int);
-
 					write(1, &c, 1);
 					num++;
 					break;
 				case '%':
-					write(1, format, 1);
+					p = va_arg(my_args, int);
+					write(1, &p, 1);
 					num++;
 					break;
 				case 's':
@@ -39,6 +37,11 @@ int _printf(const char *format, ...)
 					len = 0;
 					write(1, &s, str_len(s));
 					num += len;
+					break;
+				default:
+					v = va_arg(my_args, int);
+					write(1, &v, 1);
+					num++;
 					break;
 			}
 		}
