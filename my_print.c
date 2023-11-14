@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 					len = 0;
 					while (s[len] != '\0')
 						len++;
-					write(1, s, (len + 1));
+					write(1, s, len);
 					num += len;
 					break;
 			}
