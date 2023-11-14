@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
 				case 's':
 					s = va_arg(my_args, char*);
 					len = 0;
-					write(1, s, str_len(s));
+					write(1, &s, str_len(s));
 					num += len;
 					break;
 			}
