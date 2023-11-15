@@ -9,15 +9,34 @@
 
 int _printf(const char *format, ...)
 {
-va_list nums;
+va_list my_args;
 int a, b, y, e, f, x;
-a = va_arg(nums, int);
+int num = 0, len = 0;
+char *s;
+
+a = va_arg(my_args, int);
 b = a % 10;
 f = a / 10;
 e = 1;
 x = 1;
 
-va_start(nums, format);
+va_start(my_args, format);
+if (format == NULL)
+return (-1);
+while (*format != '\0')
+{
+if (*format == '%')
+{
+switch (*++format)
+{
+case 's':
+s = va_arg(my_args, char*);
+while (s[len] != '\0') 
+len++;                   
+write(1, s, len);
+num += len;
+break;
+case 'd' || 'i':
 if (a < 0)
 {
 write(1, "-", 1);
@@ -44,6 +63,15 @@ x++;
 }
 }
 write(1, (&b + '0'), 1);
-va_end(nums);
+}
+}
+else
+{
+write(1, format, 1);
+num++;
+}
+format++;
+}
+va_end(my_args);
 return (x);
 }
