@@ -7,11 +7,6 @@
 #include <limits.h>
 #include <stdlib.h>
 
-typedef struct format
-{
-	char *pos;
-	int (*f)();
-} check;
 
 int str_len(char *s);
 int _printf(const char *format, ...);
