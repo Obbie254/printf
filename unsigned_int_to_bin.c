@@ -1,23 +1,21 @@
 #include "main.h"
 /**
  * unsigned_int_to_bin - function used
- *
+ * @my_args: list
  *Return: c
  */
-
-#include <stdarg.h>
-#include <unistd.h>
 
 int unsigned_int_to_bin(va_list my_args)
 {
 	int x = 0, y = 1, a, c = 0, place = 0;
 	unsigned int v, num = 0;
+
 	num = va_arg(my_args, unsigned int);
 
 	while (x < 32)
 	{
 		v = ((y << (32 - x)) & num);
-		if (v >> (31 -x))
+		if (v >> (31 - x))
 		place = 1;
 		if (place)
 		{

@@ -28,8 +28,8 @@ int print_string(va_list my_args)
 		while (i < len)
 		{
 			write(1, (&s[i]), 1);
-                        i++;
+			i++;
 		}
-                return (len);
+		return (len);
 	}
 }

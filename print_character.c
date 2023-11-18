@@ -8,6 +8,7 @@
 int print_character(va_list my_args)
 {
 	char c;
+
 	c = va_arg(my_args, int);
 	write(1, &c, 1);
 	return (0);
