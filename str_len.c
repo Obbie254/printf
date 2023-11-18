@@ -18,3 +18,16 @@ int str_len(char *s)
         }
 	return (i);
 }
+
+int strlen_c(const char *s)
+{
+	int d;
+	
+	d = 0;
+	while(s[d] != 0)
+	{
+	
+		d++;
+	}
+	return (d);
+}
