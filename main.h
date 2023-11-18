@@ -6,14 +6,12 @@
 #include <stdarg.h>
 #include <limits.h>
 #include <stdlib.h>
+#define BUFF_SIZE 1024
 
-
-int str_len(char *s);
-int _printf(const char *format, ...);
-int print_string(va_list my_args);
-int print_character(va_list my_args);
-int unsigned_int_to_bin(va_list my_args);
-int print_percent(void);
-int print_numbers(va_list my_args);
+int print_integer(int);
+void print_buffer(char *, int *);
+int _putchar(char);
+int str_len(char *);
+int _printf(const char *, ...);
 
 #endif
