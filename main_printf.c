@@ -8,7 +8,7 @@
 
 int _printf(const char *format, ...)
 {
-	check y[] = {{"%c", print_characters}, {"%s", print_strings}, {"%%", print_percentage}, {"%i", print_numbers}, {"%d", print_numbers}};
+	check y[] = {{"%c", print_character}, {"%s", print_string}, {"%%", print_percent}, {"%i", print_numbers}, {"%d", print_numbers}};
 	va_list my_args;
 	int a = 0, len = 0, b;
 
@@ -17,14 +17,14 @@ int _printf(const char *format, ...)
 		return (-1);
 
 start:
-	while (format[a] = '\0')
+	while (format[a] != '\0')
 	{
 		b = 13;
 		while (b >= 0)
 		{
 			if (y[b].id[0] == format[a] && y[b].id[1] == format[a + 1])
 			{
-				len = len + y[j].f(args);
+				len = len + y[b].f(my_args);
 				a = a + 2;
 				goto start;
 			}
