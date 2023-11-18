@@ -5,11 +5,16 @@
  * @s: string input
  * Return: string length
  */
+
 int str_len(char *s)
 {
-	int length;
+	int i = 0;
 
-	for (length = 0; *s != '\0'; length++)
-		s++;
-	return (length);
+        while (s[i] != '\0')
+        {
+                
+                i++;
+
+        }
+	return (i);
 }
