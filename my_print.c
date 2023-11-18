@@ -6,7 +6,7 @@
  * @...: format specifier args
  * Return: 1 on success
  */
-int _p(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	int num = 0, len;
 	char c, *s;
