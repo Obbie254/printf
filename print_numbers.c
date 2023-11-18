@@ -12,13 +12,12 @@ int _printf(const char *format, ...)
 	int a, b, y, e, f, x;
 	int num = 0, len = 0;
 	char *s;
-	
+
 	a = va_arg(my_args, int);
 	b = a % 10;
 	f = a / 10;
 	e = 1;
 	x = 1;
-	
 	va_start(my_args, format);
 	if (format == NULL)
 		return (-1);
@@ -30,8 +29,8 @@ int _printf(const char *format, ...)
 			{
 				case 's':
 					s = va_arg(my_args, char*);
-					while (s[len] != '\0') 
-						len++;                   
+					while (s[len] != '\0')
+						len++;
 					write(1, s, len);
 					num += len;
 					break;
